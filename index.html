@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farhin Shaikh – Empowering Females | Learn & Earn Online</title>
+  <meta name="description" content="Join Farhin Shaikh to learn real digital skills and start earning online with daily mentorship and community support."/>
+  <style>
+    :root{
+      --gold:#ffb642;
+      --gold-soft:#d8b678;
+      --bg:#000;
+      --card:#1a1a1a;
+      --muted:#cfcfcf;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--gold);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+    a{color:var(--gold);text-decoration:none}
+    .container{max-width:1000px;margin:auto;padding:20px}
+
+    @keyframes shakeY{0%,100%{transform:translateY(0)}25%{transform:translateY(-5px)}50%{transform:translateY(5px)}75%{transform:translateY(-3px)}}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}50%{transform:translateX(2px)}75%{transform:translateX(-1px)}}
+
+    .card{background:var(--card);border-radius:12px;box-shadow:0 0 10px rgba(255,182,66,.15)}
+    .badge{background:var(--gold);color:#000;padding:8px 14px;border-radius:25px;font-size:14px;display:inline-block}
+    .muted{color:var(--gold-soft)}
+
+    .whatsapp-btn{display:inline-block;padding:12px 20px;background:var(--gold);color:#000;font-weight:700;border-radius:30px;box-shadow:0 0 10px rgba(255,182,66,.4)}
+    .whatsapp-btn:hover{filter:brightness(1.02)}
+
+    .counters{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:20px 0 30px}
+    .counter-box{background:#1a1a1a;border-radius:10px;padding:20px 30px;box-shadow:0 0 10px rgba(255,182,66,.3);min-width:120px;text-align:center}
+    .counter{font-size:26px;font-weight:700;color:var(--gold)}
+    .counter-sub{font-size:14px;color:var(--gold-soft)}
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;justify-items:center}
+    .feature{background:linear-gradient(145deg,#1a1a1a,#111);padding:15px 10px;border-radius:12px;box-shadow:0 0 8px rgba(255,182,66,.15);width:100%;max-width:150px;transition:.25s;cursor:pointer}
+    .feature:hover{transform:translateY(-6px) scale(1.05);box-shadow:0 0 15px rgba(255,182,66,.4)}
+    .feature-icon{font-size:25px;background:radial-gradient(circle,#ffb642,#c27803);color:#000;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;transition:.4s}
+    .feature:hover .feature-icon{transform:scale(1.2) rotate(10deg)}
+    .feature-title{font-weight:700;font-size:13px;color:var(--gold);margin-bottom:6px}
+    .feature-desc{color:#cfcfcf;font-size:12px}
+
+    .steps{display:flex;flex-direction:column;gap:20px;max-width:700px;margin:30px auto}
+    .step-card{background:#1a1a1a;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(255,182,66,.1);display:flex;align-items:flex-start;gap:15px;opacity:0;transform:translateX(100px);transition:all .6s ease-out}
+    .step-card.left{transform:translateX(-100px)}
+    .step-card.visible{opacity:1;transform:translateX(0)}
+    .step-badge{background:var(--gold);color:#000;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;box-shadow:0 0 8px rgba(255,182,66,.4)}
+    .step-card h3{margin:0 0 6px;font-size:16px;color:var(--gold)}
+    .step-card p{margin:0;font-size:14px;color:#ccc}
+
+    .faq{max-width:700px;margin:40px auto;padding:40px 20px;background:#111;border-radius:10px;box-shadow:0 0 12px rgba(255,182,66,.15);animation:fadeIn 1s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    .faq-item{background:#1a1a1a;border-radius:8px;margin-bottom:12px;box-shadow:0 2px 6px rgba(255,182,66,.05);overflow:hidden}
+    .faq-q{padding:15px 20px;cursor:pointer;font-weight:700;font-size:15px;position:relative;color:#f0c975}
+    .faq-q::after{content:'▼';position:absolute;right:20px;color:var(--gold);transition:transform .3s}
+    .faq-item.active .faq-q::after{transform:rotate(180deg)}
+    .faq-a{max-height:0;overflow:hidden;background:#222;padding:0 20px;font-size:14px;color:#e0d4b0;transition:all .35s}
+    .faq-item.active .faq-a{padding:15px 20px;max-height:500px}
+
+    .footer{ text-align:center; font-size:13px; color:var(--gold); margin-top:30px; padding:20px 15px; border-top:1px solid rgba(255,182,66,0.2); font-weight:bold; line-height:1.6; }
+
+    /* Popup Form */
+    #overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9998}
+    #popup{display:none;position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+    .form-card{background:#111;border:1px solid rgba(255,182,66,.25);border-radius:14px;box-shadow:0 0 18px rgba(255,182,66,.2);padding:20px;width:100%;max-width:420px}
+    .form-card h3{margin:0 0 12px;color:var(--gold)}
+    .row{display:flex;gap:10px}
+    input, select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,182,66,.25);background:#0f0f0f;color:#eee;margin-bottom:10px}
+    .btn{display:inline-block;background:var(--gold);color:#000;font-weight:700;padding:12px 18px;border-radius:10px;text-decoration:none;box-shadow:0 0 10px rgba(255,182,66,.4);cursor:pointer}
+    .small{font-size:12px;color:var(--gold-soft)}
+    .center{text-align:center}
+    .video{width:100%;max-width:800px;height:315px;border:0;margin-bottom:30px}
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script');
+    fbq('init', '1294526649348599');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1294526649348599&ev=PageView&noscript=1"/>
+  </noscript>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+</head>
+<body>
+
+  <!-- Watch Video Button -->
+  <div class="container center" style="margin-top:30px;">
+    <div style="display:inline-block; padding:12px 25px; background:#ffb642; color:#000; font-weight:bold; font-size:15px; border-radius:30px; animation:shakeY 1.5s infinite; text-align:center; box-shadow:0 0 8px rgba(255,182,66,0.4);">
+      👇 First Watch This Full Video 👇
+    </div>
+  </div>
+
+  <!-- YouTube Video -->
+  <div class="container center">
+    <iframe class="video"
+      src="https://www.youtube.com/embed/n25J8WqnWsA?si=tCCkijFWfw6KiQDg"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+
+  <!-- Coach Intro -->
+  <div class="container center">
+    <div class="badge" style="animation:shake 1s infinite">👩🏫 Your Coach</div>
+    <h2 style="font-size:26px; margin:10px 0 20px;">Hi, Farhin Shaikh this side!</h2>
+
+    <ul style="list-style:none; padding:0; margin:0 auto 20px; max-width:300px; text-align:left;">
+      <li style="margin-bottom:10px; font-size:18px;">🏡 Ek Housewife</li>
+      <li style="margin-bottom:10px; font-size:18px;">💻 Freelancer</li>
+      <li style="margin-bottom:10px; font-size:18px;">🎯 Aur Online Money Maker Coach hoon</li>
+    </ul>
+
+    <div class="card" style="padding:15px 20px; border-radius:12px; margin-bottom:25px; box-shadow:0 0 10px rgba(255,182,66,0.2);">
+      <strong style="display:block; margin-bottom:10px;">🎯 Mera Vision Simple Hai:</strong>
+      <div style="font-weight:bold;">
+        "Empowering Females" – Har us ladki ke liye jo sirf sapne sochti nahi, unhe jeena chahti hai.
+      </div>
+    </div>
+
+    <!-- Counters -->
+    <div class="counters">
+      <div class="counter-box">
+        <div class="counter" data-target="2.5">0</div>
+        <div class="counter-sub">Years Experience</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter" data-target="1000">0</div>
+        <div class="counter-sub">Students Helped</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter" data-target="150000">₹0</div>
+        <div class="counter-sub">Monthly Earning (₹)</div>
+      </div>
+    </div>
+    <div class="center" style="margin:12px 0 30px;">
+      <a href="javascript:void(0)" class="whatsapp-btn openLeadForm"
+         onclick="try{fbq('track','Contact');}catch(e){}; gtag('event','contact',{event_category:'engagement', event_label:'WhatsApp Contact Button (Coach Section)'});"
+         style="animation:shakeY 1.5s infinite">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="container center">
+    <h2 style="font-size:24px; margin-bottom:10px; color:var(--gold); text-shadow:0 0 6px rgba(255,182,66,.4);">
+      🌱 Aap Yahan Seekhenge
+    </h2>
+    <p class="muted" style="margin-bottom:30px;">Real, skill-based aur sustainable online income opportunity</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <div class="feature-title">Digital Skills</div>
+        <div class="feature-desc">Market skills in demand</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📞</div>
+        <div class="feature-title">Phone Se Kaam</div>
+        <div class="feature-desc">Work via phone</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⏰</div>
+        <div class="feature-title">Flexible Timing</div>
+        <div class="feature-desc">Work on your schedule</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Online Identity</div>
+        <div class="feature-desc">Build your presence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What Happens When You Join -->
+  <section class="container">
+    <h2 class="center" style="font-size:26px; margin-bottom:10px; text-shadow:0 0 8px rgba(255,182,66,.2);">✨ What Happens When You Join?</h2>
+    <div class="steps">
+      <div class="step-card left">
+        <div class="step-badge">1</div>
+        <div>
+          <h3>Instant Connection</h3>
+          <p>As soon as you take the first step, you instantly connect with me (Farhin Shaikh) for personal guidance.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">2</div>
+        <div>
+          <h3>Complete Access</h3>
+          <p>Unlock step-by-step training and support system designed to help you grow fast.</p>
+        </div>
+      </div>
+      <div class="step-card left">
+        <div class="step-badge">3</div>
+        <div>
+          <h3>Daily Mentorship</h3>
+          <p>Get guidance, motivation & support daily to keep you moving forward.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">4</div>
+        <div>
+          <h3>Start Earning</h3>
+          <p>Begin your online journey with full confidence from Week 1.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container center" style="margin:8px 0 24px;">
+    <a href="javascript:void(0)" class="whatsapp-btn openLeadForm"
+       onclick="try{fbq('track','Contact');}catch(e){}; gtag('event','contact',{event_category:'engagement', event_label:'WhatsApp Contact Button (After Steps)'});"
+       style="animation:shakeY 1.5s infinite">💬 Chat on WhatsApp</a>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq container card">
+    <h2 class="center" style="font-size:26px;margin:0 0 10px;color:var(--gold);">Frequently Asked Questions</h2>
+    <p class="center" style="font-size:14px;color:var(--gold-soft);margin-bottom:30px;">"What work will I do?", "Is this legit?", "How much time will I need?"</p>
+
+    <div class="faq-item">
+      <div class="faq-q">What kind of work will I be doing?</div>
+      <div class="faq-a">
+        You'll be learning in-demand digital skills like social media management, content creation, digital marketing, and online business strategies. The work is completely legitimate and skill-based.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When can I expect to start earning?</div>
+      <div class="faq-a">
+        Most of my students start seeing income within the first month of consistent effort. However, sustainable income typically builds up over 2-3 months as you develop your skills.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need any prior experience or technical knowledge?</div>
+      <div class="faq-a">
+        No prior experience needed! I'll guide you step-by-step from basics to advanced. All you need is a smartphone, internet connection, and willingness to learn.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What support will I get after joining?</div>
+      <div class="faq-a">
+        You'll get daily mentorship, 24/7 WhatsApp support, weekly group calls, and access to our community of successful students. I personally guide each student.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there any investment required?</div>
+      <div class="faq-a">
+        The training program has a nominal fee which covers all materials, personal mentorship, and ongoing support. No hidden costs or additional investments required.
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="container card" style="padding:50px 20px; text-align:center; background:linear-gradient(45deg,#1a1a1a,#000); border:1px solid rgba(255,182,66,.2);">
+    <div style="font-size:28px;font-weight:700;margin-bottom:10px;">Ready to Transform Your Life?</div>
+    <div class="muted" style="font-size:15px;margin-bottom:30px;">
+      Join thousands of women who have already started their journey to financial independence
+    </div>
+
+    <div class="card" style="background:rgba(255,182,66,0.05);padding:25px 20px;border-radius:12px;margin-bottom:25px;border:1px solid rgba(255,182,66,0.2);">
+      <h3 style="font-size:18px;margin:0 0 10px;">📱 How to Get Started?</h3>
+      <p style="font-weight:bold;color:var(--gold);margin:0">Bas apni journey start karne ke liye ye details taiyaar rakhiye:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:15px;">
+        <div class="card" style="background:#1a1a1a;padding:12px 18px;border-radius:8px;font-size:14px;border:1px solid rgba(255,182,66,0.2);color:#f0c975;">📋 <strong>Name:</strong> Your Full Name</div>
+        <div class="card" style="background:#1a1a1a;padding:12px 18px;border-radius:8px;font-size:14px;border:1px solid rgba(255,182,66,0.2);color:#f0c975;">🎂 <strong>Age:</strong> Your Age</div>
+        <div class="card" style="background:#1a1a1a;padding:12px 18px;border-radius:8px;font-size:14px;border:1px solid rgba(255,182,66,0.2);color:#f0c975;">💼 <strong>Profession:</strong> Current Status</div>
+      </div>
+    </div>
+
+    <div class="card" style="background:rgba(255,182,66,0.05);padding:20px 15px;border-radius:12px;margin:25px auto;max-width:400px;border:1px solid rgba(255,182,66,0.15);">
+      <h4 style="font-size:17px;margin:0 0 8px;color:var(--gold);">⏳ Within 24 hours, you'll get:</h4>
+      <p style="font-size:14px;margin:0 0 10px;color:var(--gold-soft);font-weight:bold;">✅ Clear Roadmap</p>
+    </div>
+
+    <div style="font-size:14px;line-height:1.6;color:#cfcfcf;margin-top:25px;">
+      ✨ Empower her with skills • 🌈 Support her with vision • 🚀 Watch her dreams turn into direction<br><br>
+      ❤️ <strong style="color:var(--gold);">With Strength & Sincerity, Farhin Shaikh</strong><br>
+      👩 Empowering Females to Empower
+    </div>
+
+    <div style="margin-top:24px">
+      <a href="javascript:void(0)" class="whatsapp-btn" class="openLeadForm"
+         onclick="try{fbq('track','Contact');}catch(e){};gtag('event','contact',{event_category:'engagement',event_label:'WhatsApp Contact Button'});"
+         style="animation:shakeY 1.5s infinite">💬 Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    ⚠️ This page is protected by copyright. Unauthorized use is strictly prohibited.<br>
+    🔧 Built by <a href="https://adhabits.in" target="_blank">AdHabits.in</a>
+  </div>
+
+  <!-- Popup Lead Form -->
+  <div id="overlay" style="display:none"></div>
+  <div id="popup" aria-hidden="true" style="display:none">
+    <div class="form-card">
+      <h3>Enter Your Details</h3>
+      <form id="leadForm">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="tel" name="phone" placeholder="WhatsApp Number (10 digits)" pattern="\d{10}" required />
+        <div class="row">
+          <input type="number" name="age" placeholder="Age" min="10" max="80" required />
+          <select name="gender" required>
+            <option value="" disabled selected>Gender</option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+        <select name="profession" required>
+          <option value="" disabled selected>Profession</option>
+          <option>Student</option>
+          <option>Housewife</option>
+          <option>Job</option>
+          <option>Business</option>
+          <option>Other</option>
+        </select>
+        <button type="submit" class="btn" style="width:100%">Submit & Continue</button>
+        <div class="small">By continuing, you agree to be contacted on WhatsApp.</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ----- CONFIG -----
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxynbPfUa8ycTv3Sv6yPHS-DU_i9OP8h4XQAUmgkLAjVaAGNZAdvlDAIYYwDxsN_NtZ/exec";
+    const WHATSAPP_NUMBER = "919724362930"; // 91 + 9724362930
+
+    // Open/close popup
+    const overlay = document.getElementById('overlay');
+    const popup   = document.getElementById('popup');
+    const openBtns = document.querySelectorAll('.openLeadForm');
+function openForm(){ overlay.style.display='block'; popup.style.display='flex'; }
+function closeForm(){ overlay.style.display='none'; popup.style.display='none'; }
+openBtns.forEach(btn=>btn.addEventListener('click', openForm));
+
+    overlay.addEventListener('click', closeForm);
+
+    // Counters on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const counters = document.querySelectorAll('.counter');
+      let counted = false;
+      window.addEventListener('scroll', () => {
+        const trigger = document.querySelector('.counter');
+        if (!trigger) return;
+        if (!counted && trigger.getBoundingClientRect().top < window.innerHeight) {
+          counters.forEach(counter => {
+            const update = () => {
+              const target = +counter.getAttribute('data-target');
+              let current = +counter.innerText.replace(/[^\d]/g, '');
+              let inc = Math.ceil(target / 100);
+              if (current < target) {
+                current += inc;
+                counter.innerText = target >= 1000
+                  ? (counter.textContent.includes("₹") ? "₹" + current.toLocaleString() : current + "+")
+                  : current;
+                setTimeout(update, 20);
+              } else {
+                counter.innerText = target >= 1000
+                  ? (counter.textContent.includes("₹") ? "₹" + target.toLocaleString() + "+" : target + "+")
+                  : target;
+              }
+            };
+            update();
+          });
+          counted = true;
+        }
+      });
+    });
+
+    // Steps animate in
+    const stepCards = document.querySelectorAll('.step-card');
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    },{threshold:.3});
+    stepCards.forEach(c=>obs.observe(c));
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.querySelector('.faq-q').onclick=()=> item.classList.toggle('active');
+    });
+
+    // Submit handler
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+
+      const fd = new FormData(form);
+      const payload = {
+        name: (fd.get('name')||'').trim(),
+        phone: (fd.get('phone')||'').replace(/\D/g,''),
+        age: (fd.get('age')||'').toString().trim(),
+        gender: fd.get('gender')||'',
+        profession: fd.get('profession')||''
+      };
+
+      // Basic guard for 10-digit phone
+      if(!/^\d{10}$/.test(payload.phone)){
+        alert('Please enter a valid 10-digit WhatsApp number.');
+        return;
+      }
+
+      // Send to Google Sheets (fire-and-forget)
+      try {
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(payload),
+          keepalive: true
+        });
+      } catch(err) {
+        console.warn('Apps Script error (continuing to WhatsApp):', err);
+      }
+
+      // Pixel Lead
+      try { fbq('track','Lead',{value:1,currency:'INR'}); } catch(e) {}
+
+      // WhatsApp redirect with fixed message
+      const msg = "Hello Farheen Mam ,\n\nI am interested in this work. Please share me work details.";
+      const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+      closeForm();
+      window.open(wa,'_blank');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
