@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Farhin Shaikh – Empowering Females | Learn & Earn Online</title>
   <meta name="description" content="Join Farhin Shaikh to learn real digital skills and start earning online with daily mentorship and community support."/>
+
   <style>
     :root{
       --gold:#ffb642;
@@ -18,21 +19,27 @@
     a{color:var(--gold);text-decoration:none}
     .container{max-width:1000px;margin:auto;padding:20px}
 
+    /* Animations */
     @keyframes shakeY{0%,100%{transform:translateY(0)}25%{transform:translateY(-5px)}50%{transform:translateY(5px)}75%{transform:translateY(-3px)}}
     @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}50%{transform:translateX(2px)}75%{transform:translateX(-1px)}}
 
+    /* Cards / text */
     .card{background:var(--card);border-radius:12px;box-shadow:0 0 10px rgba(255,182,66,.15)}
     .badge{background:var(--gold);color:#000;padding:8px 14px;border-radius:25px;font-size:14px;display:inline-block}
     .muted{color:var(--gold-soft)}
+    .center{text-align:center}
 
+    /* Big WhatsApp CTA */
     .whatsapp-btn{display:inline-block;padding:12px 20px;background:var(--gold);color:#000;font-weight:700;border-radius:30px;box-shadow:0 0 10px rgba(255,182,66,.4)}
     .whatsapp-btn:hover{filter:brightness(1.02)}
 
+    /* Counters */
     .counters{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:20px 0 30px}
     .counter-box{background:#1a1a1a;border-radius:10px;padding:20px 30px;box-shadow:0 0 10px rgba(255,182,66,.3);min-width:120px;text-align:center}
     .counter{font-size:26px;font-weight:700;color:var(--gold)}
     .counter-sub{font-size:14px;color:var(--gold-soft)}
 
+    /* Features grid */
     .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;justify-items:center}
     .feature{background:linear-gradient(145deg,#1a1a1a,#111);padding:15px 10px;border-radius:12px;box-shadow:0 0 8px rgba(255,182,66,.15);width:100%;max-width:150px;transition:.25s;cursor:pointer}
     .feature:hover{transform:translateY(-6px) scale(1.05);box-shadow:0 0 15px rgba(255,182,66,.4)}
@@ -41,6 +48,7 @@
     .feature-title{font-weight:700;font-size:13px;color:var(--gold);margin-bottom:6px}
     .feature-desc{color:#cfcfcf;font-size:12px}
 
+    /* Steps */
     .steps{display:flex;flex-direction:column;gap:20px;max-width:700px;margin:30px auto}
     .step-card{background:#1a1a1a;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(255,182,66,.1);display:flex;align-items:flex-start;gap:15px;opacity:0;transform:translateX(100px);transition:all .6s ease-out}
     .step-card.left{transform:translateX(-100px)}
@@ -49,6 +57,7 @@
     .step-card h3{margin:0 0 6px;font-size:16px;color:var(--gold)}
     .step-card p{margin:0;font-size:14px;color:#ccc}
 
+    /* FAQ */
     .faq{max-width:700px;margin:40px auto;padding:40px 20px;background:#111;border-radius:10px;box-shadow:0 0 12px rgba(255,182,66,.15);animation:fadeIn 1s ease both}
     @keyframes fadeIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
     .faq-item{background:#1a1a1a;border-radius:8px;margin-bottom:12px;box-shadow:0 2px 6px rgba(255,182,66,.05);overflow:hidden}
@@ -58,6 +67,7 @@
     .faq-a{max-height:0;overflow:hidden;background:#222;padding:0 20px;font-size:14px;color:#e0d4b0;transition:all .35s}
     .faq-item.active .faq-a{padding:15px 20px;max-height:500px}
 
+    /* Footer */
     .footer{ text-align:center; font-size:13px; color:var(--gold); margin-top:30px; padding:20px 15px; border-top:1px solid rgba(255,182,66,0.2); font-weight:bold; line-height:1.6; }
 
     /* Popup Form */
@@ -69,7 +79,6 @@
     input, select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,182,66,.25);background:#0f0f0f;color:#eee;margin-bottom:10px}
     .btn{display:inline-block;background:var(--gold);color:#000;font-weight:700;padding:12px 18px;border-radius:10px;text-decoration:none;box-shadow:0 0 10px rgba(255,182,66,.4);cursor:pointer}
     .small{font-size:12px;color:var(--gold-soft)}
-    .center{text-align:center}
     .video{width:100%;max-width:800px;height:315px;border:0;margin-bottom:30px}
   </style>
 
@@ -139,6 +148,8 @@
         <div class="counter-sub">Monthly Earning (₹)</div>
       </div>
     </div>
+
+    <!-- CTA #1 (Under coach section) -->
     <div class="center" style="margin:12px 0 30px;">
       <a href="javascript:void(0)" class="whatsapp-btn openLeadForm"
          onclick="try{fbq('track','Contact');}catch(e){}; gtag('event','contact',{event_category:'engagement', event_label:'WhatsApp Contact Button (Coach Section)'});"
@@ -212,6 +223,7 @@
     </div>
   </section>
 
+  <!-- CTA #2 (After steps) -->
   <div class="container center" style="margin:8px 0 24px;">
     <a href="javascript:void(0)" class="whatsapp-btn openLeadForm"
        onclick="try{fbq('track','Contact');}catch(e){}; gtag('event','contact',{event_category:'engagement', event_label:'WhatsApp Contact Button (After Steps)'});"
@@ -255,7 +267,7 @@
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- Final CTA section (CTA #3) -->
   <section class="container card" style="padding:50px 20px; text-align:center; background:linear-gradient(45deg,#1a1a1a,#000); border:1px solid rgba(255,182,66,.2);">
     <div style="font-size:28px;font-weight:700;margin-bottom:10px;">Ready to Transform Your Life?</div>
     <div class="muted" style="font-size:15px;margin-bottom:30px;">
@@ -284,8 +296,8 @@
     </div>
 
     <div style="margin-top:24px">
-      <a href="javascript:void(0)" class="whatsapp-btn" class="openLeadForm"
-         onclick="try{fbq('track','Contact');}catch(e){};gtag('event','contact',{event_category:'engagement',event_label:'WhatsApp Contact Button'});"
+      <a href="javascript:void(0)" class="whatsapp-btn openLeadForm"
+         onclick="try{fbq('track','Contact');}catch(e){};gtag('event','contact',{event_category:'engagement',event_label:'WhatsApp Contact Button (Final CTA)'});"
          style="animation:shakeY 1.5s infinite">💬 Chat on WhatsApp</a>
     </div>
   </section>
@@ -329,19 +341,17 @@
   </div>
 
   <script>
-    // ----- CONFIG -----
+    // ----- CONFIG (final) -----
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzjF54twWrw_Ts5Bq-0d6y5GCf-1L-BkZwyGCfAZq73eFBXoZDzXrT_Hr8y5bEiNmD/exec";
     const WHATSAPP_NUMBER = "919724362930"; // 91 + 9724362930
 
-    // Open/close popup
+    // Popup controls
     const overlay = document.getElementById('overlay');
     const popup   = document.getElementById('popup');
-    const openBtns = document.querySelectorAll('.openLeadForm');
-function openForm(){ overlay.style.display='block'; popup.style.display='flex'; }
-function closeForm(){ overlay.style.display='none'; popup.style.display='none'; }
-openBtns.forEach(btn=>btn.addEventListener('click', openForm));
-
+    function openForm(){ overlay.style.display='block'; popup.style.display='flex'; }
+    function closeForm(){ overlay.style.display='none'; popup.style.display='none'; }
     overlay.addEventListener('click', closeForm);
+    document.querySelectorAll('.openLeadForm').forEach(btn=>btn.addEventListener('click', openForm));
 
     // Counters on scroll
     document.addEventListener('DOMContentLoaded', () => {
@@ -387,7 +397,7 @@ openBtns.forEach(btn=>btn.addEventListener('click', openForm));
       item.querySelector('.faq-q').onclick=()=> item.classList.toggle('active');
     });
 
-    // Submit handler
+    // Submit handler (URL-encoded to avoid preflight)
     const form = document.getElementById('leadForm');
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
@@ -401,25 +411,25 @@ openBtns.forEach(btn=>btn.addEventListener('click', openForm));
         profession: fd.get('profession')||''
       };
 
-      // Basic guard for 10-digit phone
       if(!/^\d{10}$/.test(payload.phone)){
         alert('Please enter a valid 10-digit WhatsApp number.');
         return;
       }
 
-      // Send to Google Sheets (fire-and-forget)
+      // Send to Google Sheets (x-www-form-urlencoded → no CORS preflight)
       try {
+        const body = new URLSearchParams(payload).toString();
         fetch(APPS_SCRIPT_URL, {
           method: 'POST',
-          headers: {'Content-Type':'application/json'},
-          body: JSON.stringify(payload),
+          headers: {'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+          body,
           keepalive: true
         });
       } catch(err) {
         console.warn('Apps Script error (continuing to WhatsApp):', err);
       }
 
-      // Pixel Lead
+      // Pixel Lead event
       try { fbq('track','Lead',{value:1,currency:'INR'}); } catch(e) {}
 
       // WhatsApp redirect with fixed message
